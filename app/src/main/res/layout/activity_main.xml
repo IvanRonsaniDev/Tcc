@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/cedup"
+        android:layout_width="174dp"
+        android:layout_height="172dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="60dp"
+        app:srcCompat="@drawable/cedup" />
+
+    <EditText
+        android:id="@+id/matricula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="130dp"
+        android:maxLength="10"
+        android:inputType="number"
+        android:hint="Matricula"
+        app:layout_constraintTop_toBottomOf="@+id/cedup"
+
+       />
+
+    <EditText
+        android:id="@+id/senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Senha"
+        android:maxLength="8"
+        android:inputType="numberPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matricula" />
+
+    <Button
+        android:id="@+id/entrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="60dp"
+        android:text="ENTRAR"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/senha"
+        tools:layout_editor_absoluteX="60dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/gincana"
+        android:title="Gincana"
+        android:icon="@drawable/trofeu"
+
+
+        />
+    <item
+        android:id="@+id/professores"
+        android:title="Professores"
+        android:icon="@drawable/professor"
+        />
+    <item
+        android:id="@+id/perfil"
+        android:title="Perfil"
+        android:icon="@drawable/baseline_account_circle_24"
+        />
+
+    <item
+        android:id="@+id/horario"
+        android:title="Horario"
+        android:icon="@drawable/relogio"
+        />
+
+    <item
+        android:id="@+id/notas"
+        android:title="Notas"
+        android:icon="@drawable/notas"
+        />
+</menu>
