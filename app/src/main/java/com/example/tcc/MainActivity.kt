@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tcc.core.base.BaseActivity
@@ -45,7 +44,7 @@ class MainActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
-            val i = Intent(this, home::class.java)
+            val i = Intent(this, HomeActivity::class.java)
             startActivity(i)
 
             finish()

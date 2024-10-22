@@ -7,7 +7,7 @@
 
     <activity
         android:id="@+id/home2"
-        android:name="com.example.tcc.home"
+        android:name="com.example.tcc.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home" />
     <fragment
