@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navegacao"
-    app:startDestination="@id/home2">
+    app:startDestination="@id/gincana">
 
-    <activity
-        android:id="@+id/home2"
-        android:name="com.example.tcc.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
     <fragment
         android:id="@+id/gincana"
         android:name="com.GincanaFragment"
