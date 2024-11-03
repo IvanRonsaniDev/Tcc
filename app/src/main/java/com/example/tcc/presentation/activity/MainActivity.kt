@@ -1,4 +1,4 @@
-package com.example.tcc
+package com.example.tcc.presentation.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tcc.R
 import com.example.tcc.core.base.BaseActivity
 
 class MainActivity : BaseActivity() {

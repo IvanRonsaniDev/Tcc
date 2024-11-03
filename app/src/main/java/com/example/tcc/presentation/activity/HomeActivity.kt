@@ -1,10 +1,7 @@
-package com.example.tcc
+package com.example.tcc.presentation.activity
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.tcc.databinding.ActivityHomeBinding
@@ -17,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
+
         setContentView(binding.root)
         initNavigation()
     }

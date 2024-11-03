@@ -1,15 +1,106 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.PerfilFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/perfil_imagem"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/black"
+        android:layout_gravity="center" />
+
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ESSE É O PERFIL"
-        android:gravity="center"
-        />
+        android:id="@+id/perfil_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOME DO ALUNO"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/perfil_turma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3-53"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/perfil_matricula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4550732482"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Opções do Menu -->
+    <Button
+        android:id="@+id/btn_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alterar Senha"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_check_absences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consultar Faltas"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_attendance_certificate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atestado de Frequência"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_grades_report"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="Boletim"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAIR"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Link para mudança de curso -->
+    <TextView
+        android:id="@+id/change_course_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quero mudar de Curso!"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+
+         />
+
+</LinearLayout>

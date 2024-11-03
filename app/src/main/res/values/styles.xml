@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalendarView">
+        <item name="colorControlHighlight">@color/amarelo</item>
+        <item name="colorControlActivated">@color/amarelo</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorPrimaryInverse">@color/black</item>
+        <item name="colorControlNormal">@color/black</item>
+
+    </style>
+
+    <style name="CalendarView.DateText">
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
+</resources>

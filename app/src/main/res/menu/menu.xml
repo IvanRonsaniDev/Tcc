@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:id="@+id/professores"
+        android:title="Inicio"
+        android:icon="@drawable/baseline_home_24"
+        />
+
     <item
         android:id="@+id/gincana"
         android:title="Gincana"
         android:icon="@drawable/trofeu"
 
+        />
 
-        />
-    <item
-        android:id="@+id/professores"
-        android:title="Professores"
-        android:icon="@drawable/professor"
-        />
     <item
         android:id="@+id/perfil"
         android:title="Perfil"

@@ -3,31 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navegacao"
-    app:startDestination="@id/gincana">
+    app:startDestination="@id/home">
 
     <fragment
         android:id="@+id/gincana"
-        android:name="com.GincanaFragment"
+        android:name="com.example.tcc.presentation.fragments.GincanaFragment"
         android:label="fragment_gincana"
         tools:layout="@layout/fragment_gincana" />
     <fragment
         android:id="@+id/perfil"
-        android:name="com.PerfilFragment"
+        android:name="com.example.tcc.presentation.fragments.PerfilFragment"
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
     <fragment
         android:id="@+id/horario"
-        android:name="com.HorarioFragment"
+        android:name="com.example.tcc.presentation.fragments.HorarioFragment"
         android:label="fragment_horario"
         tools:layout="@layout/fragment_horario" />
     <fragment
         android:id="@+id/notas"
-        android:name="com.NotasFragment"
+        android:name="com.example.tcc.presentation.fragments.NotasFragment"
         android:label="fragment_notas"
         tools:layout="@layout/fragment_notas" />
     <fragment
-        android:id="@+id/professores"
-        android:name="com.ProfessorFragment"
-        android:label="fragment_professor"
-        tools:layout="@layout/fragment_professor" />
+        android:id="@+id/home"
+        android:name="com.example.tcc.presentation.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

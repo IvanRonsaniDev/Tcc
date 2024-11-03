@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialiconstwotone/123/twotone_123_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/home/baseline_home_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,8 +33,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="twotone_123_24" />
-                            <entry key="sourceFile" value="C:\Users\Valdecir\Downloads\imagem_2024-09-25_183841299.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="arrow_right" />
+                            <entry key="sourceFile" value="C:\Users\Valdecir\Downloads\arrow-right.svg" />
                           </map>
                         </option>
                       </PersistentState>
