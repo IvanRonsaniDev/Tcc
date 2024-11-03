@@ -4,7 +4,7 @@
 
 
     <item
-        android:id="@+id/professores"
+        android:id="@+id/home"
         android:title="Inicio"
         android:icon="@drawable/baseline_home_24"
         />
