@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class TeacherEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo
-    val id: Long = 0,
+    val teacherId: Long = 0,
     @ColumnInfo
     val name: String,
     @ColumnInfo

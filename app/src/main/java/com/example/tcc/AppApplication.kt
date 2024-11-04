@@ -2,17 +2,19 @@ package com.example.tcc
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.ClassEntity
 import com.example.tcc.data.db.entities.CompetitionEntity
 import com.example.tcc.data.db.entities.CourseEntity
+import com.example.tcc.data.db.entities.DisciplineEntity
+import com.example.tcc.data.db.entities.DisciplineTeacherCrossRef
 import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.data.db.entities.StudentEntity
 import com.example.tcc.data.db.entities.TeacherEntity
 import com.example.tcc.data.db.entities.TeamEntity
 import com.example.tcc.data.prefs.PreferencesDataSource
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -121,7 +123,7 @@ class AppApplication : Application() {
                     )
 
                     // Teachers
-                    val firstTeacher = teacherDAO().insert(
+                    val firstTeacherId = teacherDAO().insert(
                         TeacherEntity(
                             name = "João",
                             email = "joao@gmail.com",
@@ -129,12 +131,45 @@ class AppApplication : Application() {
                             teamId = papaleguasTeamId
                         )
                     )
-                    val secondTeacher = teacherDAO().insert(
+                    val secondTeacherId = teacherDAO().insert(
                         TeacherEntity(
                             name = "Maria",
                             email = "maria@gmail.com",
                             cellphone = "55123412341234",
                             teamId = twisterTeamId
+                        )
+                    )
+
+                    // Disciplines
+                    val mathDisciplineId = disciplineDAO().insert(
+                        DisciplineEntity(
+                            name = "Matemática",
+                            description = "cálculos muito loucos"
+                        )
+                    )
+                    val biologyDisciplineId = disciplineDAO().insert(
+                        DisciplineEntity(
+                            name = "Biologia",
+                            description = "bixo muito loco"
+                        )
+                    )
+
+                    disciplineDAO().insert(
+                        DisciplineTeacherCrossRef(
+                            disciplineId = mathDisciplineId,
+                            teacherId = firstTeacherId
+                        )
+                    )
+                    disciplineDAO().insert(
+                        DisciplineTeacherCrossRef(
+                            disciplineId = biologyDisciplineId,
+                            teacherId = firstTeacherId
+                        )
+                    )
+                    disciplineDAO().insert(
+                        DisciplineTeacherCrossRef(
+                            disciplineId = biologyDisciplineId,
+                            teacherId = secondTeacherId
                         )
                     )
                 }
