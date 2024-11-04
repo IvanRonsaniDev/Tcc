@@ -18,4 +18,7 @@ interface StudentDAO {
     @Update
     suspend fun update(student: StudentEntity)
 
+    @Query("SELECT EXISTS(SELECT * FROM student_table WHERE registrationNumber =:login AND password =:password)")
+    suspend fun isStudentExists(login: String, password: String): Boolean
+
 }

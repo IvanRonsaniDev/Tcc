@@ -16,5 +16,9 @@ data class TeacherEntity(
     @ColumnInfo
     val cellphone: String,
     @ColumnInfo
+    val password: String,
+    @ColumnInfo
+    val socialNumber: String,
+    @ColumnInfo
     val teamId: Long
 )

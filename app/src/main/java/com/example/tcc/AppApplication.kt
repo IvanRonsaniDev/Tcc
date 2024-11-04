@@ -128,6 +128,8 @@ class AppApplication : Application() {
                             name = "João",
                             email = "joao@gmail.com",
                             cellphone = "551231231231",
+                            password = "1234",
+                            socialNumber = "12345678901",
                             teamId = papaleguasTeamId
                         )
                     )
@@ -136,6 +138,8 @@ class AppApplication : Application() {
                             name = "Maria",
                             email = "maria@gmail.com",
                             cellphone = "55123412341234",
+                            password = "123456",
+                            socialNumber = "012345678911",
                             teamId = twisterTeamId
                         )
                     )
