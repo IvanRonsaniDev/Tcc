@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import com.example.tcc.data.db.AppDataBase
+import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
 import com.example.tcc.data.db.entities.CompetitionEntity
 import com.example.tcc.data.db.entities.CourseEntity
@@ -15,6 +16,7 @@ import com.example.tcc.data.db.entities.TeacherEntity
 import com.example.tcc.data.db.entities.TeamEntity
 import com.example.tcc.data.prefs.PreferencesDataSource
 import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -157,6 +159,28 @@ class AppApplication : Application() {
                             description = "bixo muito loco"
                         )
                     )
+
+                    // Activites
+                    for (i in 0..50) {
+                        activityDAO().insert(
+                            ActivityEntity(
+                                title = "Prova de matemática $i",
+                                date = Date(),
+                                description = "prova de matemática description",
+                                disciplineId = mathDisciplineId
+                            )
+                        )
+                    }
+                    for (i in 0..50) {
+                        activityDAO().insert(
+                            ActivityEntity(
+                                title = "Prova de biologia $i",
+                                date = Date(),
+                                description = "prova de biologia description",
+                                disciplineId = biologyDisciplineId
+                            )
+                        )
+                    }
 
                     disciplineDAO().insert(
                         DisciplineTeacherCrossRef(
