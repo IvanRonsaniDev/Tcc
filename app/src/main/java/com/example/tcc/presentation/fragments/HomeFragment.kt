@@ -14,6 +14,7 @@ import java.util.Calendar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
 
@@ -44,6 +45,12 @@ class HomeFragment : Fragment() {
             rvActivites.adapter = activitiesAdapter
             CoroutineScope(Dispatchers.IO).launch {
                 activitiesAdapter.activities = AppDataBase.getInstance().activityDAO().getAll()
+                withContext(Dispatchers.Main) {
+                    activitiesAdapter.notifyDataSetChanged()
+                }
+            }
+            btAddActivity.setOnClickListener {
+                Log.d("HomeFragment", "onAddActivity")
             }
         }
     }
