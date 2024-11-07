@@ -5,8 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.tcc.R
+import com.example.tcc.core.extensions.resetTime
+import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.databinding.FragmentHomeBinding
 import com.example.tcc.presentation.adapter.activity.ActivityAdapter
@@ -44,16 +47,36 @@ class HomeFragment : Fragment() {
             }.timeInMillis
             rvActivites.adapter = activitiesAdapter
             CoroutineScope(Dispatchers.IO).launch {
-                activitiesAdapter.activities = AppDataBase.getInstance().activityDAO().getAll()
+                activitiesAdapter.activities = AppDataBase.getInstance().activityDAO().getAll(
+                    Calendar.getInstance().time.resetTime()
+                )
                 withContext(Dispatchers.Main) {
                     activitiesAdapter.notifyDataSetChanged()
                 }
             }
+
+            calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
+                Log.d("HomeFragment", "year: $year, month: $month, dayOfMonth: $dayOfMonth")
+                CoroutineScope(Dispatchers.IO).launch {
+                    activitiesAdapter.activities =
+                        AppDataBase.getInstance().activityDAO().getAll(
+                            Calendar.getInstance().apply {
+                                set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                                set(Calendar.MONTH, month)
+                                set(Calendar.YEAR, year)
+                            }.time.resetTime()
+                    )
+                    withContext(Dispatchers.Main) {
+                        activitiesAdapter.notifyDataSetChanged()
+                    }
+                }
+            }
+
+            btAddActivity.isVisible = AppSingleton.isTeacher
             btAddActivity.setOnClickListener {
                 Log.d("HomeFragment", "onAddActivity")
             }
         }
     }
-
 
 }

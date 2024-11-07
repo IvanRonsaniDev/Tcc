@@ -3,6 +3,7 @@ package com.example.tcc
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.example.tcc.core.extensions.resetTime
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
@@ -165,7 +166,7 @@ class AppApplication : Application() {
                         activityDAO().insert(
                             ActivityEntity(
                                 title = "Prova de matemática $i",
-                                date = Date(),
+                                date = Date().resetTime(),
                                 description = "prova de matemática description",
                                 disciplineId = mathDisciplineId
                             )
@@ -175,7 +176,7 @@ class AppApplication : Application() {
                         activityDAO().insert(
                             ActivityEntity(
                                 title = "Prova de biologia $i",
-                                date = Date(),
+                                date = Date().resetTime(),
                                 description = "prova de biologia description",
                                 disciplineId = biologyDisciplineId
                             )

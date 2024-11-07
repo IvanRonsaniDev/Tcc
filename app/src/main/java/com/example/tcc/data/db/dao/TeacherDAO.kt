@@ -24,7 +24,7 @@ interface TeacherDAO {
     @Update
     suspend fun update(teacher: TeacherEntity)
 
-    @Query("SELECT EXISTS(SELECT * FROM teacher_table WHERE socialNumber =:login AND password =:password)")
-    suspend fun isTeacherExists(login: String, password: String): Boolean
+    @Query("SELECT teacherId FROM teacher_table WHERE socialNumber =:login AND password =:password LIMIT 1")
+    suspend fun getTeacher(login: String, password: String): Long
 
 }
