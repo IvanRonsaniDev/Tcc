@@ -2,7 +2,6 @@ package com.example.tcc
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import com.example.tcc.core.extensions.resetTime
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.ActivityEntity
@@ -35,7 +34,7 @@ class AppApplication : Application() {
 
         if (!preferencesDataSource.getBoolean(PreferencesDataSource.ITEMS_CREATED_ON_TABLES)) {
             CoroutineScope(Dispatchers.IO).launch {
-                with(AppDataBase.getInstance()) {
+                with(AppDataBase.getInstance(applicationContext)) {
                     val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
 
                     // Competition
@@ -162,26 +161,22 @@ class AppApplication : Application() {
                     )
 
                     // Activites
-                    for (i in 0..50) {
-                        activityDAO().insert(
+
                             ActivityEntity(
-                                title = "Prova de matemática $i",
+                                title = "Prova de matemática ",
                                 date = Date().resetTime(),
                                 description = "prova de matemática description",
                                 disciplineId = mathDisciplineId
                             )
-                        )
-                    }
-                    for (i in 0..50) {
-                        activityDAO().insert(
+
+
                             ActivityEntity(
-                                title = "Prova de biologia $i",
+                                title = "Prova de biologia ",
                                 date = Date().resetTime(),
                                 description = "prova de biologia description",
                                 disciplineId = biologyDisciplineId
                             )
-                        )
-                    }
+
 
                     disciplineDAO().insert(
                         DisciplineTeacherCrossRef(
