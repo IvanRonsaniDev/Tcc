@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragment_add_activity"
+            android:name=".AddActivityActivity"
             android:exported="false">
 
         </activity>

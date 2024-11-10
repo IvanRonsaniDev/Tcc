@@ -3,6 +3,7 @@ package com.example.tcc.data.db.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.util.Date
 
 @Entity(tableName = "activity_table")
@@ -13,9 +14,11 @@ data class ActivityEntity(
     @ColumnInfo
     val title: String,
     @ColumnInfo
-    val description: String,
+    val description: String?,
     @ColumnInfo
     val date: Date,
     @ColumnInfo
-    val disciplineId: Long
-)
+    val disciplineId: Long,
+    @ColumnInfo
+    val classId: Long
+): Serializable

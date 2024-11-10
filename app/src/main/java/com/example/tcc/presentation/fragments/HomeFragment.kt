@@ -12,9 +12,10 @@ import com.example.tcc.core.extensions.resetTime
 import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.databinding.FragmentHomeBinding
-import com.example.tcc.fragment_add_activity
+import com.example.tcc.AddActivityActivity
 import com.example.tcc.presentation.adapter.activity.ActivityAdapter
 import java.util.Calendar
+import java.util.Date
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,8 +25,12 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val activitiesAdapter = ActivityAdapter {
-        Log.d("HomeFragment", it.toString())
+        val intent = Intent(requireContext(), AddActivityActivity::class.java)
+        intent.putExtra(AddActivityActivity.SELECTED_ACTIVITY, it)
+        intent.putExtra(AddActivityActivity.SELECTED_DATE, currentDate)
+        startActivity(intent)
     }
+    private var currentDate = Calendar.getInstance().time.resetTime()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +39,19 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        CoroutineScope(Dispatchers.IO).launch {
+            activitiesAdapter.activities =
+                AppDataBase.getInstance(requireContext()).activityDAO().getAll(
+                    Calendar.getInstance().time.resetTime()
+                )
+            withContext(Dispatchers.Main) {
+                activitiesAdapter.notifyDataSetChanged()
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,54 +65,27 @@ class HomeFragment : Fragment() {
                 set(Calendar.DAY_OF_MONTH, 31)
             }.timeInMillis
             rvActivites.adapter = activitiesAdapter
-            CoroutineScope(Dispatchers.IO).launch {
-                activitiesAdapter.activities = AppDataBase.getInstance(requireContext()).activityDAO().getAll(
-                    Calendar.getInstance().time.resetTime()
-                )
-                withContext(Dispatchers.Main) {
-                    activitiesAdapter.notifyDataSetChanged()
-                }
-            }
 
             calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
                 Log.d("HomeFragment", "year: $year, month: $month, dayOfMonth: $dayOfMonth")
+                currentDate = Calendar.getInstance().apply {
+                    set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    set(Calendar.MONTH, month)
+                    set(Calendar.YEAR, year)
+                }.time.resetTime()
                 CoroutineScope(Dispatchers.IO).launch {
                     activitiesAdapter.activities =
-                        AppDataBase.getInstance(requireContext()).activityDAO().getAll(
-                            Calendar.getInstance().apply {
-                                set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                                set(Calendar.MONTH, month)
-                                set(Calendar.YEAR, year)
-                            }.time.resetTime()
-                    )
+                        AppDataBase.getInstance(requireContext()).activityDAO().getAll(currentDate)
                     withContext(Dispatchers.Main) {
                         activitiesAdapter.notifyDataSetChanged()
                     }
-                    binding.calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-                        val selectedDate = Calendar.getInstance().apply {
-                            set(year, month, dayOfMonth)
-                        }.time
-
-                        binding.btAddActivity.setOnClickListener {
-                            val intent = Intent(requireContext(), fragment_add_activity::class.java).apply {
-                                putExtra("SELECTED_DATE", selectedDate.toString())
-                            }
-                            startActivity(intent)
-                        }
-                    }
-}
-
+                }
             }
-
             btAddActivity.isVisible = AppSingleton.isTeacher
             btAddActivity.setOnClickListener {
-                Log.d("HomeFragment", "onAddActivity")
-            }
-            binding.btAddActivity.setOnClickListener {
-
-                val intent = Intent(requireContext(), fragment_add_activity::class.java)
+                val intent = Intent(requireContext(), AddActivityActivity::class.java)
+                intent.putExtra(AddActivityActivity.SELECTED_DATE, currentDate)
                 startActivity(intent)
-
             }
         }
     }

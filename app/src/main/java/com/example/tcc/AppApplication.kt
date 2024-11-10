@@ -166,7 +166,8 @@ class AppApplication : Application() {
                                 title = "Prova de matemática ",
                                 date = Date().resetTime(),
                                 description = "prova de matemática description",
-                                disciplineId = mathDisciplineId
+                                disciplineId = mathDisciplineId,
+                                classId = firstClassId
                             )
 
 
@@ -174,9 +175,9 @@ class AppApplication : Application() {
                                 title = "Prova de biologia ",
                                 date = Date().resetTime(),
                                 description = "prova de biologia description",
-                                disciplineId = biologyDisciplineId
+                                disciplineId = biologyDisciplineId,
+                                classId = secondClassId
                             )
-
 
                     disciplineDAO().insert(
                         DisciplineTeacherCrossRef(
