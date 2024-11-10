@@ -2,8 +2,10 @@ package com.example.tcc
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.tcc.core.base.BaseActivity
 import com.example.tcc.core.extensions.showPopupMenu
+import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
@@ -34,6 +36,14 @@ class AddActivityActivity : BaseActivity() {
         setContentView(binding.root)
 
         activity = intent.getSerializableExtra(SELECTED_ACTIVITY) as? ActivityEntity
+
+        binding.btnAdicionar.text = activity?.let { "Atualizar" } ?: "Adicionar"
+
+        binding.etTurma.isEnabled = AppSingleton.isTeacher
+        binding.etMateria.isEnabled = AppSingleton.isTeacher
+        binding.etConteudo.isEnabled = AppSingleton.isTeacher
+        binding.etDescricao.isEnabled = AppSingleton.isTeacher
+        binding.btnAdicionar.isVisible = AppSingleton.isTeacher
 
         CoroutineScope(Dispatchers.IO).launch {
             classes = AppDataBase.getInstance(applicationContext).classDAO().getAll()

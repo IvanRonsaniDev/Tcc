@@ -27,6 +27,7 @@
         <EditText
             android:id="@+id/et_turma"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:background="@drawable/bordas"
@@ -41,6 +42,7 @@
         <EditText
             android:id="@+id/et_materia"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:background="@drawable/bordas"
@@ -56,6 +58,7 @@
             android:id="@+id/et_conteudo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_marginTop="44dp"
             android:background="@drawable/bordas"
             android:hint="Conteudo"
@@ -70,6 +73,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/bordas"
             android:gravity="top"
+            android:textColor="@color/black"
             android:hint="Descrição"
             android:minLines="10"
             android:padding="8dp" />
