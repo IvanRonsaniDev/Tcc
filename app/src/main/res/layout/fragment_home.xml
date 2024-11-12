@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     tools:context=".presentation.fragments.HomeFragment">
 
+<!--    tela da home-->
+
     <CalendarView
         android:id="@+id/calendar"
         android:layout_width="match_parent"

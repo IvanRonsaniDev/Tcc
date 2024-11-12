@@ -9,6 +9,8 @@
     android:foreground="?attr/selectableItemBackground"
     android:paddingVertical="8dp">
 
+<!--    view holder da atividade da tela home-->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"

@@ -1,5 +1,6 @@
 package com.example.tcc.data.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -17,5 +18,16 @@ interface GoalDAO {
 
     @Update
     suspend fun update(goal: GoalEntity)
+
+    @Update
+    suspend fun updateProgress(goal: GoalEntity)
+
+    @Query("UPDATE goal_table SET quantityAchieved = :progress WHERE id = :goalId")
+    suspend fun updateProgress(goalId: Long, progress: Int)
+
+
+
+    @Query("SELECT * FROM goal_table WHERE teamId = :teamId")
+    fun getGoalsForTeam(teamId: Int): LiveData<List<GoalEntity>>
 
 }

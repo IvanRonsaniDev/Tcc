@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.activity.LoginActivity">
 
+<!--tela de login-->
 
     <ImageView
         android:id="@+id/cedup"

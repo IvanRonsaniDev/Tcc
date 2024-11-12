@@ -8,6 +8,7 @@
     android:background="#FFFFFF"
     android:gravity="center_horizontal">
 
+<!--    tela de perfil do usuario-->
 
     <ImageView
         android:id="@+id/perfil_imagem"

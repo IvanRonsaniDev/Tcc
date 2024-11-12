@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.activity.LoginActivity">
 
+<!--    tela de opcoes de login (professor ou aluno)-->
     <ImageView
         android:id="@+id/cedup"
         android:layout_width="174dp"
