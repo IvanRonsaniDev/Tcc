@@ -2,6 +2,7 @@ package com.example.tcc.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.translationMatrix
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.databinding.VhGoalBinding
