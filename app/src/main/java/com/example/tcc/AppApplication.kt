@@ -71,6 +71,7 @@ class AppApplication : Application() {
                     // Goals
                     val firstPapaleguasTeamGoalId = goalDAO().insert(
                         GoalEntity(
+                            name = "Meta 1",
                             description = "teste meta equipe papaleguas",
                             quantityAchieved = 1.0,
                             totalQuantity = 10.0,
@@ -80,6 +81,7 @@ class AppApplication : Application() {
 
                     val firstTwisterTeamGoalId = goalDAO().insert(
                         GoalEntity(
+                            name = "Meta 2",
                             description = "teste meta equipe twister",
                             quantityAchieved = 0.0,
                             totalQuantity = 15.0,

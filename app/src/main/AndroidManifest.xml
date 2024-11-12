@@ -24,22 +24,17 @@
         </activity>
         <activity
             android:name=".AddActivityActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false" />
 
         <activity
             android:name=".presentation.activity.LoginActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
 
         <activity
             android:name=".presentation.activity.HomeActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
+
+        <activity android:name=".presentation.activity.AddGoalActivity" />
     </application>
 
 </manifest>

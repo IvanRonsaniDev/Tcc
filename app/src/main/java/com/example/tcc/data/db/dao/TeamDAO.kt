@@ -18,4 +18,7 @@ interface TeamDAO {
     @Update
     suspend fun update(team: TeamEntity)
 
+    @Query("SELECT * FROM team_table WHERE id =:id LIMIT 1")
+    suspend fun getTeamBy(id: Long): TeamEntity
+
 }

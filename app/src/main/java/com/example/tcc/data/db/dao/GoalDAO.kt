@@ -25,9 +25,7 @@ interface GoalDAO {
     @Query("UPDATE goal_table SET quantityAchieved = :progress WHERE id = :goalId")
     suspend fun updateProgress(goalId: Long, progress: Int)
 
-
-
     @Query("SELECT * FROM goal_table WHERE teamId = :teamId")
-    fun getGoalsForTeam(teamId: Int): LiveData<List<GoalEntity>>
+    suspend fun getGoalsForTeam(teamId: Long): List<GoalEntity>
 
 }

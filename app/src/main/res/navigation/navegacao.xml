@@ -6,10 +6,10 @@
     app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/gincana"
-        android:name="com.example.tcc.presentation.fragments.GincanaFragment"
-        android:label="fragment_gincana"
-        tools:layout="@layout/fragment_gincana" />
+        android:id="@+id/competition"
+        android:name="com.example.tcc.presentation.fragments.CompetitionFragment"
+        android:label="fragment_competition"
+        tools:layout="@layout/fragment_competition" />
     <fragment
         android:id="@+id/perfil"
         android:name="com.example.tcc.presentation.fragments.PerfilFragment"

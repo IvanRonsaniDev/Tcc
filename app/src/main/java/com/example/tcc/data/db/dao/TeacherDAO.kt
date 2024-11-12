@@ -27,4 +27,7 @@ interface TeacherDAO {
     @Query("SELECT teacherId FROM teacher_table WHERE socialNumber =:login AND password =:password LIMIT 1")
     suspend fun getTeacher(login: String, password: String): Long
 
+    @Query("SELECT * FROM teacher_table WHERE teacherId =:id LIMIT 1")
+    suspend fun getTeacherBy(id: Long): TeacherEntity
+
 }

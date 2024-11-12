@@ -3,6 +3,7 @@ package com.example.tcc.core.extensions
 import android.app.Activity
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 
 fun Activity.showPopupMenu(
     anchorView: View,
@@ -17,4 +18,8 @@ fun Activity.showPopupMenu(
         true
     }
     show()
+}
+
+fun Activity.showToast(message: String, length: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, message, length).show()
 }

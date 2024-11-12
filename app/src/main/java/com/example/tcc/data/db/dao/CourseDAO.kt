@@ -18,4 +18,7 @@ interface CourseDAO {
     @Update
     suspend fun update(course: CourseEntity)
 
+    @Query("SELECT * FROM course_table WHERE id =:id LIMIT 1")
+    suspend fun getCourseBy(id: Long): CourseEntity
+
 }

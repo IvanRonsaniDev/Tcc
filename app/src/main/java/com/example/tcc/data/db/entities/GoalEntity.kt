@@ -12,12 +12,11 @@ data class GoalEntity(
     @ColumnInfo
     val description: String,
     @ColumnInfo
-    val quantityAchieved: Int,
+    val quantityAchieved: Double,
     @ColumnInfo
-    val totalQuantity: Int,
+    val totalQuantity: Double,
     @ColumnInfo
-    val teamId: Int,
+    val teamId: Long,
     @ColumnInfo
     val name: String
-
 )

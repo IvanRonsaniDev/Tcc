@@ -21,4 +21,7 @@ interface StudentDAO {
     @Query("SELECT id FROM student_table WHERE registrationNumber =:login AND password =:password LIMIT 1")
     suspend fun getStudent(login: String, password: String): Long
 
+    @Query("SELECT * FROM student_table WHERE id =:id LIMIT 1")
+    suspend fun getStudentBy(id: Long): StudentEntity
+
 }

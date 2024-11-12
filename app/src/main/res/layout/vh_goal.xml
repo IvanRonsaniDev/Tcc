@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvGoalName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meta"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvGoalDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descrição da Meta" />
+
+    <TextView
+        android:id="@+id/tvGoalProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Progresso: 0%" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progressDrawable="@drawable/progress_bar_background"
+        tools:progress="40" />
+
+</LinearLayout>
