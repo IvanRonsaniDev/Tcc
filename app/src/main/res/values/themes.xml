@@ -3,6 +3,7 @@
     <style name="Base.Theme.Tcc" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/amarelo</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
     <style name="Theme.Tcc" parent="Base.Theme.Tcc" />
