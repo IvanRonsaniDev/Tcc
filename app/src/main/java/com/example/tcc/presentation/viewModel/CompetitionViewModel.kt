@@ -1,5 +1,6 @@
 package com.example.tcc.presentation.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -30,14 +31,26 @@ class CompetitionViewModel : ViewModel() {
 
     private fun getGoals() {
         viewModelScope.launch {
-            val userTeamId = if (AppSingleton.isTeacher) {
-                appDataBase.teacherDAO().getTeacherBy(AppSingleton.userId).teamId
-            } else {
-                val classId = appDataBase.studentDAO().getStudentBy(AppSingleton.userId).classId
-                val courseId = appDataBase.classDAO().getClassBy(classId).courseId
-                appDataBase.courseDAO().getCourseBy(courseId).teamId
+            runCatching {
+                val userTeamId = if (AppSingleton.isTeacher) {
+                    appDataBase.teacherDAO().getTeacherBy(AppSingleton.userId).teamId
+                } else {
+                    Log.d("TAG", "AppSingleton.userId: ${AppSingleton.userId}")
+
+                    val classId = appDataBase.studentDAO().getStudentBy(AppSingleton.userId).classId.also {
+                        Log.d("TAG", "getGoals: $it")
+                    }
+                    val courseId = appDataBase.classDAO().getClassBy(classId).courseId.also {
+                        Log.d("TAG", "courseId: $it")
+                    }
+                    appDataBase.courseDAO().getCourseBy(courseId).teamId.also {
+                        Log.d("TAG", "teamId: $it")
+                    }
+                }
+                goals.postValue(appDataBase.goalDAO().getGoalsForTeam(userTeamId))
+            }.onFailure {
+                it.printStackTrace()
             }
-            goals.postValue(appDataBase.goalDAO().getGoalsForTeam(userTeamId))
         }
     }
 
