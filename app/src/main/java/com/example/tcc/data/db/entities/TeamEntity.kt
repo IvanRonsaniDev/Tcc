@@ -10,7 +10,7 @@ data class TeamEntity(
     @ColumnInfo
     val id: Long = 0,
     @ColumnInfo
-    val points: Double = 0.0,
+    val points: Int = 0,
     @ColumnInfo
     val name: String,
     @ColumnInfo

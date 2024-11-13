@@ -12,7 +12,7 @@ interface TeamDAO {
     @Insert
     suspend fun insert(team: TeamEntity): Long
 
-    @Query("SELECT * FROM team_table")
+    @Query("SELECT * FROM team_table ORDER BY points DESC")
     suspend fun getAll(): List<TeamEntity>
 
     @Update

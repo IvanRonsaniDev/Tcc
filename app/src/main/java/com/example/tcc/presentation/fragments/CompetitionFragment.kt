@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.tcc.core.extensions.showToast
 import com.example.tcc.data.AppSingleton
 import com.example.tcc.databinding.FragmentCompetitionBinding
 import com.example.tcc.presentation.activity.AddGoalActivity
 import com.example.tcc.presentation.adapter.GoalAdapter
+import com.example.tcc.presentation.adapter.TableAdapter
+import com.example.tcc.presentation.dialog.EditTeamPointsDialog
 import com.example.tcc.presentation.viewModel.CompetitionViewModel
 
 class CompetitionFragment : Fragment() {
@@ -29,9 +32,22 @@ class CompetitionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // Configura o RecyclerView
         with(binding) {
+            val tableAdapter = TableAdapter {
+                if (AppSingleton.isTeacher.not()) return@TableAdapter
+                EditTeamPointsDialog(
+                    context = requireContext(),
+                    teamName = it.name,
+                    teamPoints = it.points,
+                ) { newPoints ->
+                    viewModel.updateTeam(it.copy(points = newPoints))
+                    dismiss()
+                    showToast("Pontuação alterada com sucesso!")
+                }.show()
+            }
+            rvTable.adapter = tableAdapter
+
             val goalAdapter = GoalAdapter()
             rvGoals.adapter = goalAdapter
 
@@ -40,7 +56,11 @@ class CompetitionFragment : Fragment() {
                 goalAdapter.submitList(it)
             }
 
-//            btnAddGoal.isVisible = AppSingleton.isTeacher
+            viewModel.teams.observe(viewLifecycleOwner) {
+                tableAdapter.submitList(it)
+            }
+
+            btnAddGoal.isVisible = AppSingleton.isTeacher
             // Ação para adicionar uma nova meta
             btnAddGoal.setOnClickListener {
                 val intent = Intent(context, AddGoalActivity::class.java)
@@ -52,6 +72,6 @@ class CompetitionFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getGoals()
+        viewModel.fetchData()
     }
 }
