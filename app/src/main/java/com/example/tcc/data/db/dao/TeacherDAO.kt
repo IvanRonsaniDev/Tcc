@@ -30,4 +30,7 @@ interface TeacherDAO {
     @Query("SELECT * FROM teacher_table WHERE teacherId =:id LIMIT 1")
     suspend fun getTeacherBy(id: Long): TeacherEntity
 
+    @Query("SELECT * FROM teacher_table WHERE teamId =:teamId LIMIT 1")
+    suspend fun getTeacherByTeamId(teamId: Long): TeacherEntity
+
 }

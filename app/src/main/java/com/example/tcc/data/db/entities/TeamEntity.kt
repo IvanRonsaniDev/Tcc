@@ -14,5 +14,7 @@ data class TeamEntity(
     @ColumnInfo
     val name: String,
     @ColumnInfo
-    val competitionId: Long
+    val competitionId: Long,
+    @ColumnInfo
+    val instagramAt: String
 )

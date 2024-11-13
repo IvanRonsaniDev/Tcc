@@ -3,6 +3,7 @@ package com.example.tcc.data.db.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "goal_table")
 data class GoalEntity(
@@ -19,4 +20,4 @@ data class GoalEntity(
     val teamId: Long,
     @ColumnInfo
     val name: String
-)
+): Serializable

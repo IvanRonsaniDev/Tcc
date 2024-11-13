@@ -12,6 +12,7 @@ import com.example.tcc.core.extensions.showToast
 import com.example.tcc.data.AppSingleton
 import com.example.tcc.databinding.FragmentCompetitionBinding
 import com.example.tcc.presentation.activity.AddGoalActivity
+import com.example.tcc.presentation.activity.GoalInfosActivity
 import com.example.tcc.presentation.adapter.GoalAdapter
 import com.example.tcc.presentation.adapter.TableAdapter
 import com.example.tcc.presentation.dialog.EditTeamPointsDialog
@@ -48,7 +49,17 @@ class CompetitionFragment : Fragment() {
             }
             rvTable.adapter = tableAdapter
 
-            val goalAdapter = GoalAdapter()
+            val goalAdapter = GoalAdapter {
+                if (AppSingleton.isTeacher) {
+                    // open screen to edit
+                } else {
+                    startActivity(
+                        Intent(context, GoalInfosActivity::class.java).apply {
+                            putExtra(GoalInfosActivity.GOAL, it)
+                        }
+                    )
+                }
+            }
             rvGoals.adapter = goalAdapter
 
             // Observa as metas da equipe

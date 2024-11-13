@@ -35,6 +35,8 @@
             android:exported="true" />
 
         <activity android:name=".presentation.activity.AddGoalActivity" />
+
+        <activity android:name=".presentation.activity.GoalInfosActivity" />
     </application>
 
 </manifest>

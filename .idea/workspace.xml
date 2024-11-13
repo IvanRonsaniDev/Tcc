@@ -15,6 +15,11 @@
           <theme>@style/Theme.Tcc</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_goal_infos.xml">
+        <config>
+          <theme>@style/Theme.Tcc</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
@@ -91,17 +96,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64372fe2-ac5c-45e8-86ae-86c7e528fd45" name="Changes" comment="Listing and adding goals">
+    <list default="true" id="64372fe2-ac5c-45e8-86ae-86c7e528fd45" name="Changes" comment="Fixing edit team points dialog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/TeamDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/TeamDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/AppApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/AppApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/TeacherDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/TeacherDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/GoalEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/GoalEntity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/TeamEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/TeamEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/item_goal.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/GoalAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/GoalAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/TableAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/TableAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/CompetitionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/CompetitionFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/CompetitionViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/CompetitionViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_competition.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_competition.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/vh_goal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vh_goal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/vh_table.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vh_table.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=10427d85)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/lucas/.android/avd/Pixel_3_API_30.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -164,9 +168,9 @@
         <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
         <option value="resourceFile" />
-        <option value="Kotlin Class" />
-        <option value="layoutResourceFile" />
         <option value="Kotlin File" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -232,11 +236,11 @@
       <recent name="C:\Users\Valdecir\AndroidStudioProjects\Tcc\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="C:\Users\Valdecir\AndroidStudioProjects\Tcc\app\src\main\java\com\example\tcc\presentation\fragments" />
       <recent name="C:\Users\Valdecir\AndroidStudioProjects\Tcc\app\src\main\java\com\example\tcc" />
       <recent name="C:\Users\Valdecir\AndroidStudioProjects\Tcc\app\src\main\java\com\example\tcc\presentation" />
       <recent name="C:\Users\Valdecir\AndroidStudioProjects\Tcc\app\src\main\java\com" />
-      <recent name="C:\Users\Valdecir\AndroidStudioProjects\Tcc\app\src\main\java\com\example\tcc\core" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.example.tcc.presentation.fragments" />
@@ -417,7 +421,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731370748146</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implementing competition screen">
+      <option name="closed" value="true" />
+      <created>1731465584601</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731465584601</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixing edit team points dialog">
+      <option name="closed" value="true" />
+      <created>1731465877619</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731465877619</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -431,6 +451,8 @@
     <MESSAGE value="Modifying login" />
     <MESSAGE value="09/11/2024" />
     <MESSAGE value="tentei fazer a gincana" />
-    <option name="LAST_COMMIT_MESSAGE" value="tentei fazer a gincana" />
+    <MESSAGE value="Implementing competition screen" />
+    <MESSAGE value="Fixing edit team points dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing edit team points dialog" />
   </component>
 </project>

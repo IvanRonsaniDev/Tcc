@@ -44,13 +44,15 @@ class AppApplication : Application() {
                     val papaleguasTeamId = teamDAO().insert(
                         TeamEntity(
                             name = "Papaléguas",
-                            competitionId = competitionId
+                            competitionId = competitionId,
+                            instagramAt = "papaleguas_cedup"
                         )
                     )
                     val twisterTeamId = teamDAO().insert(
                         TeamEntity(
                             name = "Twister",
-                            competitionId = competitionId
+                            competitionId = competitionId,
+                            instagramAt = "equipe_twister"
                         )
                     )
 
@@ -163,23 +165,22 @@ class AppApplication : Application() {
                     )
 
                     // Activites
+                    ActivityEntity(
+                        title = "Prova de matemática ",
+                        date = Date().resetTime(),
+                        description = "prova de matemática description",
+                        disciplineId = mathDisciplineId,
+                        classId = firstClassId
+                    )
 
-                            ActivityEntity(
-                                title = "Prova de matemática ",
-                                date = Date().resetTime(),
-                                description = "prova de matemática description",
-                                disciplineId = mathDisciplineId,
-                                classId = firstClassId
-                            )
 
-
-                            ActivityEntity(
-                                title = "Prova de biologia ",
-                                date = Date().resetTime(),
-                                description = "prova de biologia description",
-                                disciplineId = biologyDisciplineId,
-                                classId = secondClassId
-                            )
+                    ActivityEntity(
+                        title = "Prova de biologia ",
+                        date = Date().resetTime(),
+                        description = "prova de biologia description",
+                        disciplineId = biologyDisciplineId,
+                        classId = secondClassId
+                    )
 
                     disciplineDAO().insert(
                         DisciplineTeacherCrossRef(

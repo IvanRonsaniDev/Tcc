@@ -2,13 +2,13 @@ package com.example.tcc.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.graphics.translationMatrix
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.databinding.VhGoalBinding
 
-class GoalAdapter : RecyclerView.Adapter<GoalAdapter.GoalViewHolder>() {
+class GoalAdapter(private val onClick: (GoalEntity) -> Unit) :
+    RecyclerView.Adapter<GoalAdapter.GoalViewHolder>() {
 
     private var goals: List<GoalEntity> = listOf()
 
@@ -31,6 +31,9 @@ class GoalAdapter : RecyclerView.Adapter<GoalAdapter.GoalViewHolder>() {
     inner class GoalViewHolder(private val binding: VhGoalBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(goal: GoalEntity) {
+            binding.root.setOnClickListener {
+                onClick(goal)
+            }
             binding.tvGoalName.text = goal.name
             binding.tvGoalDescription.text = goal.description
             val progress = if (goal.totalQuantity > 0) {
