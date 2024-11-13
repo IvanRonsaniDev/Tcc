@@ -7,17 +7,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 import com.example.tcc.R
+import com.example.tcc.databinding.FragmentPerfilBinding
 
 
 class PerfilFragment : Fragment() {
+
+    private lateinit var binding: FragmentPerfilBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentPerfilBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnLogout.setOnClickListener {
+            activity?.finish()
+        }
     }
 
 }
