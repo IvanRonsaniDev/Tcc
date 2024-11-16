@@ -11,7 +11,7 @@ class EditTeamPointsDialog(
     private val teamName: String,
     private val teamPoints: Int,
     private val onChangePoints: Dialog.(Int) -> Unit
-) : AlertDialog(context) {
+) : Dialog(context) {
 
     private val binding = DialogEditTeamPointsBinding.inflate(layoutInflater)
 

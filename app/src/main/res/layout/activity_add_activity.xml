@@ -8,6 +8,8 @@
 
 <!--    tela de adicionar atividade-->
 
+<!--    adicionar uma combobox de 'tipo de avalição' que o professor quer (atividade, nota) -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -109,20 +109,20 @@ class AppApplication : Application() {
                     // Students
                     val firstStudent = studentDAO().insert(
                         StudentEntity(
-                            name = "Lucas Moro",
+                            name = "Alessandro De Jesus",
                             registrationNumber = "1234567890",
-                            birthdate = sdf.parse("12-04-2003")!!,
-                            password = "12042003",
-                            email = "lucas@gmail.com",
+                            birthdate = sdf.parse("29-08-2006")!!,
+                            password = "29082006",
+                            email = "alessandro@gmail.com",
                             classId = firstClassId
                         )
                     )
                     val secondStudent = studentDAO().insert(
                         StudentEntity(
                             name = "Ivan",
-                            registrationNumber = "2345678901",
-                            birthdate = sdf.parse("01-01-2007")!!,
-                            password = "01012007",
+                            registrationNumber = "0123456789",
+                            birthdate = sdf.parse("28-06-2006")!!,
+                            password = "28062006",
                             email = "ivan@gmail.com",
                             classId = secondClassId
                         )
@@ -131,9 +131,9 @@ class AppApplication : Application() {
                     // Teachers
                     val firstTeacherId = teacherDAO().insert(
                         TeacherEntity(
-                            name = "João",
-                            email = "joao@gmail.com",
-                            cellphone = "551231231231",
+                            name = "Evandro",
+                            email = "evandro@gmail.com",
+                            cellphone = "554896802417",
                             password = "1234",
                             socialNumber = "12345678901",
                             teamId = papaleguasTeamId
@@ -141,11 +141,11 @@ class AppApplication : Application() {
                     )
                     val secondTeacherId = teacherDAO().insert(
                         TeacherEntity(
-                            name = "Maria",
-                            email = "maria@gmail.com",
-                            cellphone = "55123412341234",
+                            name = "Eloy",
+                            email = "eloy@gmail.com",
+                            cellphone = "554898422362",
                             password = "123456",
-                            socialNumber = "012345678911",
+                            socialNumber = "11717501966",
                             teamId = twisterTeamId
                         )
                     )

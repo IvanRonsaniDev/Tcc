@@ -15,10 +15,7 @@
         android:icon="@drawable/baseline_account_circle_24"
         android:title="Perfil" />
 
-    <item
-        android:id="@+id/horario"
-        android:icon="@drawable/relogio"
-        android:title="Horario" />
+
 
     <item
         android:id="@+id/notas"

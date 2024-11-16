@@ -16,11 +16,6 @@
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
     <fragment
-        android:id="@+id/horario"
-        android:name="com.example.tcc.presentation.fragments.HorarioFragment"
-        android:label="fragment_horario"
-        tools:layout="@layout/fragment_horario" />
-    <fragment
         android:id="@+id/notas"
         android:name="com.example.tcc.presentation.fragments.NotasFragment"
         android:label="fragment_notas"

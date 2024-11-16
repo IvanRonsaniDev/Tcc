@@ -11,7 +11,7 @@ import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.data.db.entities.TeamEntity
 import kotlinx.coroutines.launch
 
-class CompetitionViewModel : ViewModel() {
+class       CompetitionViewModel : ViewModel() {
 
     private val appDataBase = AppDataBase.getInstance(AppApplication.getInstance())
     val goals = MutableLiveData<List<GoalEntity>>()
