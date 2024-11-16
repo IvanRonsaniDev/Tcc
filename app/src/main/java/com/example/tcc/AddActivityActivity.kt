@@ -46,17 +46,19 @@ class AddActivityActivity : BaseActivity() {
         binding.btnAdicionar.isVisible = AppSingleton.isTeacher
 
         CoroutineScope(Dispatchers.IO).launch {
-            classes = AppDataBase.getInstance(applicationContext).classDAO().getAll()
+            classes = AppDataBase.getInstance(applicationContext).teacherDAO()
+                .getTeacherWithClasses(AppSingleton.userId).classes
             withContext(Dispatchers.Main) {
                 activity?.let { act ->
-                    val `class` = classes.firstOrNull { act.classId == it.id }
-                    classId = `class`?.id ?: -1
+                    val `class` = classes.firstOrNull { act.classId == it.classId }
+                    classId = `class`?.classId ?: -1
                     binding.etTurma.setText(`class`?.name)
                 }
             }
         }
         CoroutineScope(Dispatchers.IO).launch {
-            disciplines = AppDataBase.getInstance(applicationContext).disciplineDAO().getAll()
+            disciplines = AppDataBase.getInstance(applicationContext).teacherDAO()
+                .getTeacherWithDisciplines(AppSingleton.userId).disciplines
             withContext(Dispatchers.Main) {
                 activity?.let { act ->
                     val discipline = disciplines.firstOrNull { act.disciplineId == it.disciplineId }
@@ -125,7 +127,9 @@ class AddActivityActivity : BaseActivity() {
         }
 
         binding.etTurma.setOnClickListener {
-            showPopupMenu(anchorView = binding.etTurma, items = classes.map { it.id to it.name }) {
+            showPopupMenu(
+                anchorView = binding.etTurma,
+                items = classes.map { it.classId to it.name }) {
                 classId = it.first
                 binding.etTurma.setText(it.second)
             }

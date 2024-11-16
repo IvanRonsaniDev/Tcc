@@ -18,7 +18,7 @@ interface ClassDAO {
     @Update
     suspend fun update(classEntity: ClassEntity)
 
-    @Query("SELECT * FROM class_table WHERE id =:id LIMIT 1")
+    @Query("SELECT * FROM class_table WHERE classId =:id LIMIT 1")
     suspend fun getClassBy(id: Long): ClassEntity
 
 }

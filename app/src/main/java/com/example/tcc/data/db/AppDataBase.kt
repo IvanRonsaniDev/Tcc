@@ -19,6 +19,7 @@ import com.example.tcc.data.db.dao.TeacherDAO
 import com.example.tcc.data.db.dao.TeamDAO
 import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
+import com.example.tcc.data.db.entities.ClassTeacherCrossRef
 import com.example.tcc.data.db.entities.CompetitionEntity
 import com.example.tcc.data.db.entities.CourseEntity
 import com.example.tcc.data.db.entities.DisciplineEntity
@@ -30,7 +31,7 @@ import com.example.tcc.data.db.entities.TeacherEntity
 import com.example.tcc.data.db.entities.TeamEntity
 
 @Database(
-    entities = [ClassEntity::class, CompetitionEntity::class, CourseEntity::class, GoalEntity::class, StudentEntity::class, TeacherEntity::class, TeamEntity::class, ActivityEntity::class, DisciplineEntity::class, DisciplineTeacherCrossRef::class, GradeEntity::class],
+    entities = [ClassEntity::class, CompetitionEntity::class, CourseEntity::class, GoalEntity::class, StudentEntity::class, TeacherEntity::class, TeamEntity::class, ActivityEntity::class, DisciplineEntity::class, DisciplineTeacherCrossRef::class, GradeEntity::class, ClassTeacherCrossRef::class],
     version = 1
 )
 @TypeConverters(Converters::class)
@@ -56,7 +57,7 @@ abstract class AppDataBase : RoomDatabase() {
                     roomDB = Room.databaseBuilder(
                         AppApplication.getInstance(),
                         AppDataBase::class.java,
-                       "tcc-db"
+                        "tcc-db"
                     ).build()
                 }
                 return roomDB!!

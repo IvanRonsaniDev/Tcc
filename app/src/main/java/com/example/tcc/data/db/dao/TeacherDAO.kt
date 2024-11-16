@@ -5,7 +5,9 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
+import com.example.tcc.data.db.entities.ClassTeacherCrossRef
 import com.example.tcc.data.db.entities.TeacherEntity
+import com.example.tcc.data.db.entities.TeacherWithClasses
 import com.example.tcc.data.db.entities.TeacherWithDisciplines
 import com.example.tcc.data.db.entities.TeacherWithTeam
 
@@ -15,12 +17,11 @@ interface TeacherDAO {
     @Insert
     suspend fun insert(teacher: TeacherEntity): Long
 
+    @Insert
+    suspend fun insert(classTeacher: ClassTeacherCrossRef)
+
     @Query("SELECT * FROM teacher_table")
     suspend fun getAll(): List<TeacherEntity>
-
-    @Transaction
-    @Query("SELECT * FROM teacher_table")
-    suspend fun getTeacherWithDisciplines(): List<TeacherWithDisciplines>
 
     @Update
     suspend fun update(teacher: TeacherEntity)
@@ -36,5 +37,13 @@ interface TeacherDAO {
 
     @Query("SELECT * FROM teacher_table WHERE teacherId =:id LIMIT 1")
     suspend fun getTeacherWithTeamById(id: Long): TeacherWithTeam
+
+    @Transaction
+    @Query("SELECT * FROM teacher_table WHERE teacherId =:teacherId LIMIT 1")
+    suspend fun getTeacherWithDisciplines(teacherId: Long): TeacherWithDisciplines
+
+    @Transaction
+    @Query("SELECT * FROM teacher_table WHERE teacherId =:teacherId LIMIT 1")
+    suspend fun getTeacherWithClasses(teacherId: Long): TeacherWithClasses
 
 }

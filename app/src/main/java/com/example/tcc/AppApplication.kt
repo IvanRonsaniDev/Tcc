@@ -6,6 +6,7 @@ import com.example.tcc.core.extensions.resetTime
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
+import com.example.tcc.data.db.entities.ClassTeacherCrossRef
 import com.example.tcc.data.db.entities.CompetitionEntity
 import com.example.tcc.data.db.entities.CourseEntity
 import com.example.tcc.data.db.entities.DisciplineEntity
@@ -191,12 +192,19 @@ class AppApplication : Application() {
                     disciplineDAO().insert(
                         DisciplineTeacherCrossRef(
                             disciplineId = biologyDisciplineId,
+                            teacherId = secondTeacherId
+                        )
+                    )
+
+                    teacherDAO().insert(
+                        ClassTeacherCrossRef(
+                            classId = secondClassId,
                             teacherId = firstTeacherId
                         )
                     )
-                    disciplineDAO().insert(
-                        DisciplineTeacherCrossRef(
-                            disciplineId = biologyDisciplineId,
+                    teacherDAO().insert(
+                        ClassTeacherCrossRef(
+                            classId = firstClassId,
                             teacherId = secondTeacherId
                         )
                     )
