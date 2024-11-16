@@ -1,5 +1,6 @@
 package com.example.tcc.presentation.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.databinding.FragmentPerfilBinding
+import com.example.tcc.presentation.activity.ChangePasswordActivity
 import com.example.tcc.presentation.viewModel.ProfileViewModel
 import com.example.tcc.presentation.viewModel.ProfileViewModelFactory
 
@@ -54,6 +56,11 @@ class PerfilFragment : Fragment() {
         profileViewModel.studentRegistrationNumber.observe(viewLifecycleOwner) {
             binding.perfilMatricula.text = it
             binding.perfilMatricula.isVisible = !it.isNullOrBlank()
+        }
+
+        binding.btnChangePassword.setOnClickListener {
+            val intent = Intent(context, ChangePasswordActivity::class.java)
+            startActivity(intent)
         }
 
         binding.btnLogout.setOnClickListener {

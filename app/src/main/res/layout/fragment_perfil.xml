@@ -69,33 +69,6 @@
         android:textColor="@color/black" />
 
     <Button
-        android:id="@+id/btn_check_absences"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:text="Consultar Faltas"
-        android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/btn_attendance_certificate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:text="Atestado de Frequência"
-        android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/btn_grades_report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:text="Boletim"
-        android:textColor="@color/black" />
-
-    <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,8 +86,6 @@
         android:text="Quero mudar de Curso!"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="bold"
-
-        />
+        android:textStyle="bold" />
 
 </LinearLayout>
