@@ -29,6 +29,8 @@ class AddActivityActivity : BaseActivity() {
     private var disciplineId: Long = -1
     private var classes: List<ClassEntity> = emptyList()
     private var disciplines: List<DisciplineEntity> = emptyList()
+    private var isEvaluative: Boolean? = null
+    private var yesOrNoList = listOf(YES to "Sim", NO to "Não")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,7 @@ class AddActivityActivity : BaseActivity() {
 
         binding.etTurma.isEnabled = AppSingleton.isTeacher
         binding.etMateria.isEnabled = AppSingleton.isTeacher
+        binding.etAtividadeAvaliativa.isEnabled = AppSingleton.isTeacher
         binding.etConteudo.isEnabled = AppSingleton.isTeacher
         binding.etDescricao.isEnabled = AppSingleton.isTeacher
         binding.btnAdicionar.isVisible = AppSingleton.isTeacher
@@ -71,6 +74,14 @@ class AddActivityActivity : BaseActivity() {
         activity?.let { act ->
             binding.etConteudo.setText(act.title)
             binding.etDescricao.setText(act.description)
+            isEvaluative = act.isEvaluative
+            binding.etAtividadeAvaliativa.setText(
+                (if (act.isEvaluative) {
+                    yesOrNoList.first { it.first == YES }
+                } else {
+                    yesOrNoList.first { it.first == NO }
+                }).second
+            )
         }
         // Receber a data do intent
 
@@ -83,7 +94,7 @@ class AddActivityActivity : BaseActivity() {
             val title = binding.etConteudo.text.toString()
             val description = binding.etDescricao.text.toString()
 
-            if (classId == -1L || disciplineId == -1L || title.isBlank()) {
+            if (classId == -1L || disciplineId == -1L || isEvaluative == null || title.isBlank()) {
                 Toast.makeText(
                     this@AddActivityActivity,
                     "Preencha todos os campos",
@@ -98,7 +109,8 @@ class AddActivityActivity : BaseActivity() {
                 description = description,
                 date = date,
                 classId = classId,
-                disciplineId = disciplineId
+                disciplineId = disciplineId,
+                isEvaluative = isEvaluative ?: false
             )
 
             // Salvar no banco de dados
@@ -143,9 +155,21 @@ class AddActivityActivity : BaseActivity() {
                 binding.etMateria.setText(it.second)
             }
         }
+        binding.etAtividadeAvaliativa.setOnClickListener {
+            showPopupMenu(
+                anchorView = binding.etAtividadeAvaliativa,
+                items = yesOrNoList
+            ) {
+                isEvaluative = it.first == YES
+                binding.etAtividadeAvaliativa.setText(it.second)
+            }
+        }
     }
 
     companion object {
+        private const val YES = 0L
+        private const val NO = 1L
+
         const val SELECTED_DATE = "SELECTED_DATE"
         const val SELECTED_ACTIVITY = "SELECTED_ACTIVITY"
     }

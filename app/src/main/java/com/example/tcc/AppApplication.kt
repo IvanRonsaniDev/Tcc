@@ -171,7 +171,8 @@ class AppApplication : Application() {
                         date = Date().resetTime(),
                         description = "prova de matemática description",
                         disciplineId = mathDisciplineId,
-                        classId = firstClassId
+                        classId = firstClassId,
+                        isEvaluative = false
                     )
 
 
@@ -180,7 +181,8 @@ class AppApplication : Application() {
                         date = Date().resetTime(),
                         description = "prova de biologia description",
                         disciplineId = biologyDisciplineId,
-                        classId = secondClassId
+                        classId = secondClassId,
+                        isEvaluative = true
                     )
 
                     disciplineDAO().insert(

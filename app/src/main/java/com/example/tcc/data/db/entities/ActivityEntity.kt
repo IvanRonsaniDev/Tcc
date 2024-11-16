@@ -20,5 +20,7 @@ data class ActivityEntity(
     @ColumnInfo
     val disciplineId: Long,
     @ColumnInfo
-    val classId: Long
-): Serializable
+    val classId: Long,
+    @ColumnInfo
+    val isEvaluative: Boolean
+) : Serializable
