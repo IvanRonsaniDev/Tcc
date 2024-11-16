@@ -7,6 +7,7 @@ import androidx.room.Transaction
 import androidx.room.Update
 import com.example.tcc.data.db.entities.TeacherEntity
 import com.example.tcc.data.db.entities.TeacherWithDisciplines
+import com.example.tcc.data.db.entities.TeacherWithTeam
 
 @Dao
 interface TeacherDAO {
@@ -32,5 +33,8 @@ interface TeacherDAO {
 
     @Query("SELECT * FROM teacher_table WHERE teamId =:teamId LIMIT 1")
     suspend fun getTeacherByTeamId(teamId: Long): TeacherEntity
+
+    @Query("SELECT * FROM teacher_table WHERE teacherId =:id LIMIT 1")
+    suspend fun getTeacherWithTeamById(id: Long): TeacherWithTeam
 
 }

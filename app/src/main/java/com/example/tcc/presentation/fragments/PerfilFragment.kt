@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.tcc.data.db.AppDataBase
@@ -16,7 +17,13 @@ class PerfilFragment : Fragment() {
     private lateinit var binding: FragmentPerfilBinding
     private val profileViewModel: ProfileViewModel by viewModels {
         val db = AppDataBase.getInstance(requireContext())
-        ProfileViewModelFactory(db.studentDAO(), db.teacherDAO())
+        ProfileViewModelFactory(
+            db.studentDAO(),
+            db.teacherDAO(),
+            db.classDAO(),
+            db.courseDAO(),
+            db.teamDAO()
+        )
     }
 
     override fun onCreateView(
@@ -32,9 +39,21 @@ class PerfilFragment : Fragment() {
 
         profileViewModel.loadUserName()
 
-
         profileViewModel.userName.observe(viewLifecycleOwner) { name ->
             binding.perfilNome.text = name
+        }
+
+        profileViewModel.nameInitials.observe(viewLifecycleOwner) { nameInitials ->
+            binding.tvIniciaisNome.text = nameInitials
+        }
+
+        profileViewModel.classTeam.observe(viewLifecycleOwner) {
+            binding.perfilTurma.text = it
+        }
+
+        profileViewModel.studentRegistrationNumber.observe(viewLifecycleOwner) {
+            binding.perfilMatricula.text = it
+            binding.perfilMatricula.isVisible = !it.isNullOrBlank()
         }
 
         binding.btnLogout.setOnClickListener {
