@@ -19,6 +19,10 @@ class GoalRepository(
         goalDAO.insert(goal)
     }
 
+    suspend fun updateGoal(goal: GoalEntity) {
+        goalDAO.update(goal)
+    }
+
     // Função para atualizar o progresso de uma meta
     suspend fun updateProgress(goalId: Long, quantity: Int) {
         goalDAO.updateProgress(goalId, quantity)

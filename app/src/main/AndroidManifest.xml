@@ -34,7 +34,7 @@
             android:name=".presentation.activity.HomeActivity"
             android:exported="true" />
 
-        <activity android:name=".presentation.activity.AddGoalActivity" />
+        <activity android:name=".presentation.activity.GoalFormActivity" />
 
         <activity android:name=".presentation.activity.GoalInfosActivity" />
 

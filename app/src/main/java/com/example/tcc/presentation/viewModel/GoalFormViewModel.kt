@@ -9,7 +9,7 @@ import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.data.repository.GoalRepository
 import kotlinx.coroutines.launch
 
-class AddGoalViewModel(private val goalRepository: GoalRepository = GoalRepository()) :
+class GoalFormViewModel(private val goalRepository: GoalRepository = GoalRepository()) :
     ViewModel() {
 
     private val appDataBase = AppDataBase.getInstance(AppApplication.getInstance())
@@ -20,6 +20,12 @@ class AddGoalViewModel(private val goalRepository: GoalRepository = GoalReposito
     fun addGoal(goal: GoalEntity) {
         viewModelScope.launch {
             goalRepository.addGoal(goal)
+        }
+    }
+
+    fun updateGoal(goal: GoalEntity) {
+        viewModelScope.launch {
+            goalRepository.updateGoal(goal)
         }
     }
 

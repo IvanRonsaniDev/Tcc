@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import com.example.tcc.core.extensions.showToast
 import com.example.tcc.data.AppSingleton
 import com.example.tcc.databinding.FragmentCompetitionBinding
-import com.example.tcc.presentation.activity.AddGoalActivity
+import com.example.tcc.presentation.activity.GoalFormActivity
 import com.example.tcc.presentation.activity.GoalInfosActivity
 import com.example.tcc.presentation.adapter.GoalAdapter
 import com.example.tcc.presentation.adapter.TableAdapter
@@ -51,7 +51,11 @@ class CompetitionFragment : Fragment() {
 
             val goalAdapter = GoalAdapter {
                 if (AppSingleton.isTeacher) {
-                    // open screen to edit
+                    startActivity(
+                        Intent(context, GoalFormActivity::class.java).apply {
+                            putExtra(GoalFormActivity.SELECTED_GOAL, it)
+                        }
+                    )
                 } else {
                     startActivity(
                         Intent(context, GoalInfosActivity::class.java).apply {
@@ -74,7 +78,7 @@ class CompetitionFragment : Fragment() {
             btnAddGoal.isVisible = AppSingleton.isTeacher
             // Ação para adicionar uma nova meta
             btnAddGoal.setOnClickListener {
-                val intent = Intent(context, AddGoalActivity::class.java)
+                val intent = Intent(context, GoalFormActivity::class.java)
                 startActivity(intent)
                 // está pegando esse botao :)
             }
