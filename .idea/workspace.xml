@@ -45,6 +45,11 @@
           <theme>@style/Theme.Tcc</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_edit_notes.xml">
+        <config>
+          <theme>@style/Theme.Tcc</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_edit_team_points.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
@@ -121,10 +126,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64372fe2-ac5c-45e8-86ae-86c7e528fd45" name="Changes" comment="">
+    <list default="true" id="64372fe2-ac5c-45e8-86ae-86c7e528fd45" name="Changes" comment="tentei">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditNotesDialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesStudentsViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_edit_notes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/activity/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/activity/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notas.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/StudentEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/StudentEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/fragment_notes_students.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/fragment_notes_students.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NoteAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NoteAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditTeamPointsDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditTeamPointsDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/NotasFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/NotasFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,9 +199,9 @@
         <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
         <option value="Kotlin File" />
+        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
-        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -468,7 +480,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731780685088</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="adição de recycler nota professor e aluno">
+      <option name="closed" value="true" />
+      <created>1732151910233</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732151910233</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -485,6 +505,8 @@
     <MESSAGE value="Implementing competition screen" />
     <MESSAGE value="Fixing edit team points dialog" />
     <MESSAGE value="adição do nome do usuario na tela de perfil" />
-    <option name="LAST_COMMIT_MESSAGE" value="adição do nome do usuario na tela de perfil" />
+    <MESSAGE value="adição de recycler nota professor e aluno" />
+    <MESSAGE value="tentei" />
+    <option name="LAST_COMMIT_MESSAGE" value="tentei" />
   </component>
 </project>

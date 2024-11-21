@@ -3,7 +3,7 @@ package com.example.tcc.presentation.dialog
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
+
 import com.example.tcc.databinding.DialogEditTeamPointsBinding
 
 class EditTeamPointsDialog(
