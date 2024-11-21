@@ -43,7 +43,7 @@ class LoginActivity : BaseActivity() {
                 startActivity(i)
                 finish()
             } else {
-                Toast.makeText(this, "Esse usuário nao existe!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Senha ou Login incorretos!", Toast.LENGTH_SHORT).show()
             }
         }
     }
