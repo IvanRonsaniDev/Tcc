@@ -21,8 +21,5 @@ data class StudentEntity(
     @ColumnInfo
     val email: String,
     @ColumnInfo
-    //adicionei uma coluna de notas
-    val note: Double,
-    @ColumnInfo
     val classId: Long
 )

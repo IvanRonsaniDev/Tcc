@@ -24,4 +24,7 @@ interface StudentDAO {
     @Query("SELECT * FROM student_table WHERE id =:id LIMIT 1")
     suspend fun getStudentBy(id: Long): StudentEntity
 
+    @Query("SELECT * FROM student_table WHERE classId =:classId")
+    suspend fun getStudentsByClassId(classId: Long): List<StudentEntity>
+
 }

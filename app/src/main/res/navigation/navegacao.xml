@@ -17,9 +17,9 @@
         tools:layout="@layout/fragment_perfil" />
     <fragment
         android:id="@+id/notas"
-        android:name="com.example.tcc.presentation.fragments.NotasFragment"
+        android:name="com.example.tcc.presentation.fragments.DisciplinesFragment"
         android:label="fragment_notas"
-        tools:layout="@layout/fragment_notas" />
+        tools:layout="@layout/fragment_disciplines" />
     <fragment
         android:id="@+id/home"
         android:name="com.example.tcc.presentation.fragments.HomeFragment"

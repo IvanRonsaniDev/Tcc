@@ -13,6 +13,7 @@ import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.databinding.FragmentHomeBinding
 import com.example.tcc.AddActivityActivity
+import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.presentation.adapter.activity.ActivityAdapter
 import java.util.Calendar
 import java.util.Date
@@ -44,10 +45,22 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         CoroutineScope(Dispatchers.IO).launch {
-            activitiesAdapter.activities =
-                AppDataBase.getInstance(requireContext()).activityDAO().getAll(
-                    Calendar.getInstance().time.resetTime()
-                )
+            val activities = emptyList<ActivityEntity>().toMutableList()
+            val date = Calendar.getInstance().time.resetTime()
+            if (AppSingleton.isTeacher) {
+                AppDataBase.getInstance(requireContext()).teacherDAO()
+                    .getTeacherWithDisciplines(AppSingleton.userId).disciplines.forEach {
+                        activities += AppDataBase.getInstance(requireContext()).activityDAO()
+                            .getActivitiesByDisciplineIdAndDate(it.disciplineId, date)
+                    }
+            } else {
+                val studentClassId = AppDataBase.getInstance(requireContext()).studentDAO()
+                    .getStudentBy(AppSingleton.userId).classId
+
+                activities += AppDataBase.getInstance(requireContext()).activityDAO()
+                    .getActivitiesByClassIdAndDate(studentClassId, date)
+            }
+            activitiesAdapter.activities = activities
             withContext(Dispatchers.Main) {
                 activitiesAdapter.notifyDataSetChanged()
             }
@@ -74,8 +87,26 @@ class HomeFragment : Fragment() {
                     set(Calendar.YEAR, year)
                 }.time.resetTime()
                 CoroutineScope(Dispatchers.IO).launch {
-                    activitiesAdapter.activities =
-                        AppDataBase.getInstance(requireContext()).activityDAO().getAll(currentDate)
+                    val activities = emptyList<ActivityEntity>().toMutableList()
+                    if (AppSingleton.isTeacher) {
+                        AppDataBase.getInstance(requireContext()).teacherDAO()
+                            .getTeacherWithDisciplines(AppSingleton.userId).disciplines.forEach {
+                                activities += AppDataBase.getInstance(requireContext())
+                                    .activityDAO()
+                                    .getActivitiesByDisciplineIdAndDate(
+                                        it.disciplineId,
+                                        currentDate
+                                    )
+                            }
+                    } else {
+                        val studentClassId = AppDataBase.getInstance(requireContext()).studentDAO()
+                            .getStudentBy(AppSingleton.userId).classId
+
+                        activities += AppDataBase.getInstance(requireContext()).activityDAO()
+                            .getActivitiesByClassIdAndDate(studentClassId, currentDate)
+                    }
+
+                    activitiesAdapter.activities = activities
                     withContext(Dispatchers.Main) {
                         activitiesAdapter.notifyDataSetChanged()
                     }

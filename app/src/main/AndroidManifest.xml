@@ -39,6 +39,8 @@
         <activity android:name=".presentation.activity.GoalInfosActivity" />
 
         <activity android:name=".presentation.activity.ChangePasswordActivity" />
+
+        <activity android:name=".presentation.activity.NotesActivity" />
     </application>
 
 </manifest>

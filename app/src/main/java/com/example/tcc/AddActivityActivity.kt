@@ -49,29 +49,28 @@ class AddActivityActivity : BaseActivity() {
         binding.btnAdicionar.isVisible = AppSingleton.isTeacher
 
         CoroutineScope(Dispatchers.IO).launch {
+            if (AppSingleton.isTeacher.not()) return@launch
             classes = AppDataBase.getInstance(applicationContext).teacherDAO()
                 .getTeacherWithClasses(AppSingleton.userId).classes
-            withContext(Dispatchers.Main) {
-                activity?.let { act ->
-                    val `class` = classes.firstOrNull { act.classId == it.classId }
-                    classId = `class`?.classId ?: -1
-                    binding.etTurma.setText(`class`?.name)
-                }
-            }
         }
         CoroutineScope(Dispatchers.IO).launch {
+            if (AppSingleton.isTeacher.not()) return@launch
             disciplines = AppDataBase.getInstance(applicationContext).teacherDAO()
                 .getTeacherWithDisciplines(AppSingleton.userId).disciplines
-            withContext(Dispatchers.Main) {
-                activity?.let { act ->
-                    val discipline = disciplines.firstOrNull { act.disciplineId == it.disciplineId }
-                    disciplineId = discipline?.disciplineId ?: -1
-                    binding.etMateria.setText(discipline?.name)
-                }
-            }
         }
 
         activity?.let { act ->
+            CoroutineScope(Dispatchers.IO).launch {
+                val className = AppDataBase.getInstance(this@AddActivityActivity).classDAO()
+                    .getClassBy(act.classId).name
+                val disciplineName =
+                    AppDataBase.getInstance(this@AddActivityActivity).disciplineDAO()
+                        .getDisciplineBy(act.disciplineId).name
+                withContext(Dispatchers.Main) {
+                    binding.etTurma.setText(className)
+                    binding.etMateria.setText(disciplineName)
+                }
+            }
             binding.etConteudo.setText(act.title)
             binding.etDescricao.setText(act.description)
             isEvaluative = act.isEvaluative

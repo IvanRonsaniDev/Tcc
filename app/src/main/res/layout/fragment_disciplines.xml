@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment_notes_students">
+    tools:context=".NotesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNotes"
+        android:id="@+id/rvDisciplines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constrainedHeight="true"
         android:layout_marginHorizontal="26dp"
-        android:paddingBottom="20dp"
-        app:layout_constraintVertical_bias="5"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        tools:itemCount="20"
+        android:paddingBottom="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintVertical_bias="5"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:listitem="@layout/vh_note_students"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+        tools:itemCount="20"
+        tools:listitem="@layout/vh_discipline">
 
 
     </androidx.recyclerview.widget.RecyclerView>

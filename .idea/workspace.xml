@@ -45,6 +45,11 @@
           <theme>@style/Theme.Tcc</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_notes.xml">
+        <config>
+          <theme>@style/Theme.Tcc</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_edit_notes.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
@@ -60,17 +65,12 @@
           <theme>@style/Theme.Tcc</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_disciplines.xml">
+        <config>
+          <theme>@style/Theme.Tcc</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-        <config>
-          <theme>@style/Theme.Tcc</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notas.xml">
-        <config>
-          <theme>@style/Theme.Tcc</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_students.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
         </config>
@@ -80,12 +80,12 @@
           <theme>@style/Theme.Tcc</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_vh_note.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/vh_activity.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/vh_activity.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/vh_discipline.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
         </config>
@@ -96,11 +96,6 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/vh_note.xml">
-        <config>
-          <theme>@style/Theme.Tcc</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/vh_note_students.xml">
         <config>
           <theme>@style/Theme.Tcc</theme>
         </config>
@@ -127,16 +122,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64372fe2-ac5c-45e8-86ae-86c7e528fd45" name="Changes" comment="tentei">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditNotesDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesStudentsViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_edit_notes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/activity/NotesActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NotesAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/AddActivityActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/AddActivityActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/AppDataBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/AppDataBase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/ActivityDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/ActivityDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/DisciplineDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/DisciplineDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/GradeDAO.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/StudentDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/dao/StudentDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/GradeEntity.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/StudentEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/data/db/entities/StudentEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/fragment_notes_students.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/fragment_notes_students.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NoteAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NoteAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditTeamPointsDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditTeamPointsDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/NotasFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/NotasFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/fragment_notes_students.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NoteAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/NoteStudentsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/adapter/DisciplineAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditNotesDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/dialog/EditNotesDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/fragments/NotasFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesStudentsViewModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_disciplines.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_notes_students.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/vh_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vh_note.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/vh_note_students.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vh_discipline.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/navegacao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/navegacao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +156,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\Valdecir\.android\avd\Medium_Phone_API_33.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/lucas/.android/avd/Pixel_3_API_30.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -197,10 +207,10 @@
         <option value="valueResourceFile" />
         <option value="Kotlin Object" />
         <option value="Kotlin Data Class" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin File" />
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -229,7 +239,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Android App.app.executor": "Run",
-    "DEBUGGABLE_DEVICE": "Pixel_3_API_30 [emulator-5554]",
+    "DEBUGGABLE_DEVICE": "emulator-5554",
     "DEBUGGABLE_PROCESS": "com.example.tcc",
     "DEBUGGER_ID": "Auto",
     "PROJECT_TRUSTED_KEY": "true",
@@ -277,9 +287,9 @@
       <recent name="com.example.tcc.presentation.fragments" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.tcc.presentation.activity" />
       <recent name="com.example.tcc.presentation.adapter" />
       <recent name="com.example.tcc.presentation.fragments" />
-      <recent name="com.example.tcc.presentation.activity" />
       <recent name="com.example.tcc" />
     </key>
   </component>
@@ -491,6 +501,17 @@
     <option name="localTasksCounter" value="17" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primeiro commit" />
     <MESSAGE value="fazendo um commit" />
@@ -508,5 +529,57 @@
     <MESSAGE value="adição de recycler nota professor e aluno" />
     <MESSAGE value="tentei" />
     <option name="LAST_COMMIT_MESSAGE" value="tentei" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt</url>
+          <line>51</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt</url>
+          <line>63</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt</url>
+          <line>55</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/presentation/viewModel/NotesViewModel.kt</url>
+          <line>64</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/AddActivityActivity.kt</url>
+          <line>62</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/AddActivityActivity.kt</url>
+          <line>57</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/AddActivityActivity.kt</url>
+          <line>58</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/tcc/AddActivityActivity.kt</url>
+          <line>59</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

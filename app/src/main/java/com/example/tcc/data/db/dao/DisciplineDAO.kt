@@ -28,4 +28,7 @@ interface DisciplineDAO {
     @Update
     suspend fun update(discipline: DisciplineEntity)
 
+    @Query("SELECT * FROM discipline_table WHERE disciplineId =:disciplineId")
+    suspend fun getDisciplineBy(disciplineId: Long): DisciplineEntity
+
 }
