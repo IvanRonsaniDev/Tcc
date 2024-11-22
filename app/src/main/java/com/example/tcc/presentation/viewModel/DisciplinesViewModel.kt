@@ -5,8 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tcc.AppApplication
+import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.DisciplineEntity
+import com.example.tcc.data.db.entities.TeacherWithDisciplines
 import kotlinx.coroutines.launch
 
 class DisciplinesViewModel : ViewModel() {
@@ -17,7 +19,15 @@ class DisciplinesViewModel : ViewModel() {
     fun getDisciplines() {
         viewModelScope.launch {
             _disciplines.postValue(
-                AppDataBase.getInstance(AppApplication.getInstance()).disciplineDAO().getAll()
+                if (AppSingleton.isTeacher) {
+                    AppDataBase.getInstance(AppApplication.getInstance()).teacherDAO()
+                        .getTeacherWithDisciplines(
+                            AppSingleton.userId
+                        ).disciplines
+                } else {
+                    AppDataBase.getInstance(AppApplication.getInstance()).disciplineDAO()
+                        .getAll()
+                }
             )
         }
     }
