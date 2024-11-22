@@ -57,6 +57,30 @@ class AppApplication : Application() {
                         )
                     )
 
+                    val uniconttiTeamId = teamDAO().insert(
+                        TeamEntity(
+                            name = "Unicontti",
+                            competitionId = competitionId,
+                            instagramAt = "equipeunicontti"
+                        )
+                    )
+
+                        val atomicaTeamId = teamDAO().insert(
+                        TeamEntity(
+                            name = "Atômica",
+                            competitionId = competitionId,
+                            instagramAt = "equipeatomica"
+                        )
+                        )
+
+                        val mestresTeamId = teamDAO().insert(
+                        TeamEntity(
+                            name = "Mestres",
+                            competitionId = competitionId,
+                            instagramAt = "equipemestredeobras"
+                        )
+                        )
+
                     // Courses
                     val itCourseId = courseDAO().insert(
                         CourseEntity(
@@ -68,6 +92,24 @@ class AppApplication : Application() {
                         CourseEntity(
                             name = "Administração",
                             teamId = twisterTeamId
+                        )
+                    )
+                    val ediCourseId = courseDAO().insert(
+                        CourseEntity(
+                            name = "Edificações",
+                            teamId = mestresTeamId
+                        )
+                    )
+                    val quiCourseId = courseDAO().insert(
+                        CourseEntity(
+                            name = "Química",
+                            teamId = atomicaTeamId
+                        )
+                    )
+                    val mktCourseId = courseDAO().insert(
+                        CourseEntity(
+                            name = "Marketing",
+                            teamId = uniconttiTeamId
                         )
                     )
 
@@ -99,6 +141,24 @@ class AppApplication : Application() {
                             courseId = admCourseId
                         )
                     )
+                    val thirdClassId = classDAO().insert(
+                        ClassEntity(
+                            name = "1-41",
+                            courseId = ediCourseId
+                        )
+                    )
+                    val fourthClassId = classDAO().insert(
+                        ClassEntity(
+                            name = "1-61",
+                            courseId = quiCourseId
+                        )
+                    )
+                    val fifthClassId = classDAO().insert(
+                        ClassEntity(
+                            name = "1-81",
+                            courseId = mktCourseId
+                        )
+                    )
 
                     val secondClassId = classDAO().insert(
                         ClassEntity(
@@ -128,6 +188,37 @@ class AppApplication : Application() {
                             classId = secondClassId
                         )
                     )
+                    val thirdStudent = studentDAO().insert(
+                        StudentEntity(
+                            name = "Lucas Cunhaski",
+                            registrationNumber = "1234567890",
+                            birthdate = sdf.parse("01-01-2007")!!,
+                            password = "01012007",
+                            email = "lucas@gmail.com",
+                            classId = thirdClassId
+                        )
+                    )
+                    val fourthStudent = studentDAO().insert(
+                        StudentEntity(
+                            name = "Brenda Beltrao",
+                            registrationNumber = "1234567890",
+                            birthdate = sdf.parse("14-06-2008")!!,
+                            password = "14062007",
+                            email = "brenda@gmail.com",
+                            classId = fourthClassId
+                        )
+                    )
+                    val fifthStudent = studentDAO().insert(
+                        StudentEntity(
+                            name = "Neymar Junior",
+                            registrationNumber = "1234567890",
+                            birthdate = sdf.parse("21-02-1995")!!,
+                            password = "21021995",
+                            email = "neymar@gmail.com",
+                            classId = fifthClassId
+                        )
+                    )
+
 
                     // Teachers
                     val firstTeacherId = teacherDAO().insert(
@@ -150,6 +241,37 @@ class AppApplication : Application() {
                             teamId = twisterTeamId
                         )
                     )
+                    val thirdTeacherId = teacherDAO().insert(
+                        TeacherEntity(
+                            name = "Gabriela",
+                            email = "gabriela@gmail.com",
+                            cellphone = "554898123456",
+                            password = "2222",
+                            socialNumber = "98765432109",
+                            teamId = atomicaTeamId
+                        )
+                    )
+                    val fourthTeacherId = teacherDAO().insert(
+                        TeacherEntity(
+                            name = "Fernando",
+                            email = "fernando@gmail.com",
+                            cellphone = "554899876543",
+                            password = "0000",
+                            socialNumber = "65432198701",
+                            teamId = mestresTeamId
+                        )
+                    )
+                    val fifthTeacherId = teacherDAO().insert(
+                        TeacherEntity(
+                            name = "Marina",
+                            email = "marina@gmail.com",
+                            cellphone = "554897654321",
+                            password = "1111",
+                            socialNumber = "11223344556",
+                            teamId = uniconttiTeamId
+                        )
+                    )
+
 
                     // Disciplines
                     val mathDisciplineId = disciplineDAO().insert(
@@ -162,6 +284,24 @@ class AppApplication : Application() {
                         DisciplineEntity(
                             name = "Biologia",
                             description = "bixo muito loco"
+                        )
+                    )
+                    val physicsDisciplineId = disciplineDAO().insert(
+                        DisciplineEntity(
+                            name = "Física",
+                            description = "Leis do universo e experimentos incríveis"
+                        )
+                    )
+                    val chemistryDisciplineId = disciplineDAO().insert(
+                        DisciplineEntity(
+                            name = "Química",
+                            description = "Misturas, reações e elementos químicos"
+                        )
+                    )
+                    val historyDisciplineId = disciplineDAO().insert(
+                        DisciplineEntity(
+                            name = "História",
+                            description = "Estudos sobre o passado e suas lições"
                         )
                     )
 
@@ -191,6 +331,25 @@ class AppApplication : Application() {
                             teacherId = firstTeacherId
                         )
                     )
+
+                    disciplineDAO().insert(
+                        DisciplineTeacherCrossRef(
+                            disciplineId = physicsDisciplineId,
+                            teacherId = thirdTeacherId
+                        )
+                    )
+                    disciplineDAO().insert(
+                        DisciplineTeacherCrossRef(
+                            disciplineId = chemistryDisciplineId,
+                            teacherId = fourthTeacherId
+                        )
+                    )
+                    disciplineDAO().insert(
+                        DisciplineTeacherCrossRef(
+                            disciplineId = historyDisciplineId,
+                            teacherId = fifthTeacherId
+                        )
+                    )
                     disciplineDAO().insert(
                         DisciplineTeacherCrossRef(
                             disciplineId = biologyDisciplineId,
@@ -204,6 +363,26 @@ class AppApplication : Application() {
                             teacherId = firstTeacherId
                         )
                     )
+
+                    teacherDAO().insert(
+                        ClassTeacherCrossRef(
+                            classId = thirdClassId, // Turma 1-41
+                            teacherId = thirdTeacherId
+                        )
+                    )
+                    teacherDAO().insert(
+                        ClassTeacherCrossRef(
+                            classId = fourthClassId, // Turma 1-61
+                            teacherId = fourthTeacherId
+                        )
+                    )
+                    teacherDAO().insert(
+                        ClassTeacherCrossRef(
+                            classId = fifthClassId, // Turma 1-81
+                            teacherId = fifthTeacherId
+                        )
+                    )
+
                     teacherDAO().insert(
                         ClassTeacherCrossRef(
                             classId = firstClassId,
