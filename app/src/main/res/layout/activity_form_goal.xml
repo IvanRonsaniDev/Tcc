@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="Nome da meta"
+        app:layout_constraintBottom_toTopOf="@id/etGoalName"
+        app:layout_constraintTop_toBottomOf="parent" />
 
     <EditText
         android:id="@+id/etGoalName"
@@ -13,12 +23,29 @@
         android:hint="Nome da Meta"
         android:inputType="text" />
 
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="Descrição"
+        app:layout_constraintBottom_toTopOf="@id/etGoalName"
+        app:layout_constraintTop_toBottomOf="parent" />
+
     <EditText
         android:id="@+id/etGoalDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Descrição"
         android:inputType="text" />
+    <TextView
+        android:id="@+id/textActual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="Quantidade Atual"
+        app:layout_constraintBottom_toTopOf="@id/etGoalName"
+        app:layout_constraintTop_toBottomOf="parent" />
 
     <EditText
         android:id="@+id/etGoalQuantityAchieved"
@@ -28,6 +55,14 @@
         android:inputType="numberDecimal"
         android:visibility="gone"
         tools:visibility="visible" />
+    <TextView
+        android:id="@+id/textDesire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="Quantidade Desejada"
+        app:layout_constraintBottom_toTopOf="@id/etGoalName"
+        app:layout_constraintTop_toBottomOf="parent" />
 
     <EditText
         android:id="@+id/etGoalQuantity"

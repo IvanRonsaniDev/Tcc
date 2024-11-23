@@ -63,6 +63,7 @@ class PerfilFragment : Fragment() {
             startActivity(intent)
         }
 
+
         binding.btnLogout.setOnClickListener {
             activity?.finish()
         }
