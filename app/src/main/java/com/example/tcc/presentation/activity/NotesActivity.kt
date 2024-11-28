@@ -27,7 +27,7 @@ class NotesActivity : BaseActivity() {
         ) { newNotes ->
             viewModel.updateNote(it, newNotes)
             dismiss()
-            showToast("NOTA ALTERADA")
+            showToast("Nota Alterada com Sucesso!")
         }.show()
     }
 
@@ -40,6 +40,12 @@ class NotesActivity : BaseActivity() {
         setupObservers()
         viewModel.fetchData(disciplineId = intent.extras?.getLong(DISCIPLINE_ID) ?: 0)
     }
+
+
+
+
+
+
 
     private fun setupViews() = with(binding) {
         etTurma.isVisible = AppSingleton.isTeacher

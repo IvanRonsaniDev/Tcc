@@ -314,8 +314,6 @@ class AppApplication : Application() {
                         classId = firstClassId,
                         isEvaluative = false
                     )
-
-
                     ActivityEntity(
                         title = "Prova de biologia ",
                         date = Date().resetTime(),

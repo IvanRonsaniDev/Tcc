@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class GoalFormViewModel(private val goalRepository: GoalRepository = GoalRepository()) :
     ViewModel() {
 
+
     private val appDataBase = AppDataBase.getInstance(AppApplication.getInstance())
     var userTeamId: Long = -1L
         private set
@@ -27,7 +28,11 @@ class GoalFormViewModel(private val goalRepository: GoalRepository = GoalReposit
         viewModelScope.launch {
             goalRepository.updateGoal(goal)
         }
+
+
+
     }
+
 
     fun fetchData() {
         viewModelScope.launch {
@@ -38,7 +43,14 @@ class GoalFormViewModel(private val goalRepository: GoalRepository = GoalReposit
                 val courseId = appDataBase.classDAO().getClassBy(classId).courseId
                 val teamId = appDataBase.courseDAO().getCourseBy(courseId).teamId
                 appDataBase.teamDAO().getTeamBy(teamId).id
+
             }
+        }
+    }
+
+    fun deleteGoal(goal: GoalEntity) {
+        viewModelScope.launch {
+            goalRepository.deleteGoal(goal) // Chama o repositório para excluir
         }
     }
 }

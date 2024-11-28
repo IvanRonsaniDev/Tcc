@@ -7,6 +7,7 @@ import com.example.tcc.core.base.BaseActivity
 import com.example.tcc.core.extensions.showToast
 import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.databinding.ActivityFormGoalBinding
+import com.example.tcc.presentation.dialog.ConfirmDeleteDialogFragment
 import com.example.tcc.presentation.viewModel.GoalFormViewModel
 
 class GoalFormActivity : BaseActivity() {
@@ -23,16 +24,22 @@ class GoalFormActivity : BaseActivity() {
 
         goal = intent.getSerializableExtra(SELECTED_GOAL) as? GoalEntity
 
+
+
         with(binding) {
             goal?.let {
                 etGoalName.setText(goal?.name)
                 etGoalDescription.setText(goal?.description)
                 etGoalQuantityAchieved.setText(goal?.quantityAchieved.toString())
                 etGoalQuantity.setText(goal?.totalQuantity.toString())
+                textActual.text
+                btnDelete.bottom
             }
 
             btnSaveGoal.text = if (goal != null) "Atualizar meta" else "Salvar meta"
             etGoalQuantityAchieved.isVisible = goal != null
+            textActual.isVisible = goal != null
+            btnDelete.isVisible = goal != null
 
             btnSaveGoal.setOnClickListener {
                 val name = etGoalName.text.toString()
@@ -63,6 +70,21 @@ class GoalFormActivity : BaseActivity() {
 
                 finish()
             }
+
+            btnDelete.setOnClickListener {
+                val dialog = ConfirmDeleteDialogFragment { isConfirmed ->
+                    if (isConfirmed) {
+                        goal?.let {
+                            viewModel.deleteGoal(it)
+                            showToast("Meta excluída com sucesso!")
+                            finish()
+                        }
+                    }
+                }
+                dialog.show(supportFragmentManager, "ConfirmDeleteDialog")
+            }
+
+
         }
     }
 

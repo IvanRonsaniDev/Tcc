@@ -17,7 +17,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintVertical_bias="5"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:itemCount="20"
+        tools:itemCount="4"
         tools:listitem="@layout/vh_discipline">
 
 

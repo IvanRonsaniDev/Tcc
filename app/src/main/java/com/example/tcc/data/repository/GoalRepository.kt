@@ -14,6 +14,7 @@ class GoalRepository(
         return goalDAO.getGoalsForTeam(teamId)
     }
 
+
     // Função para adicionar uma meta
     suspend fun addGoal(goal: GoalEntity) {
         goalDAO.insert(goal)
@@ -27,4 +28,9 @@ class GoalRepository(
     suspend fun updateProgress(goalId: Long, quantity: Int) {
         goalDAO.updateProgress(goalId, quantity)
     }
+    //excluir meta
+    suspend fun deleteGoal(goal: GoalEntity) {
+        goalDAO.delete(goal)
+    }
+
 }

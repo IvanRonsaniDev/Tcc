@@ -9,6 +9,8 @@ import com.example.tcc.core.extensions.hideKeyboard
 
 abstract class BaseActivity : AppCompatActivity() {
 
+
+
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_DOWN) {
             currentFocus?.takeIf { it is EditText }?.run {

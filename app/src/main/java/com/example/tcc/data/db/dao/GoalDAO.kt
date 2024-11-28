@@ -2,6 +2,7 @@ package com.example.tcc.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
@@ -27,5 +28,8 @@ interface GoalDAO {
 
     @Query("SELECT * FROM goal_table WHERE teamId = :teamId")
     suspend fun getGoalsForTeam(teamId: Long): List<GoalEntity>
+
+    @Delete
+    suspend fun delete(goal: GoalEntity)
 
 }

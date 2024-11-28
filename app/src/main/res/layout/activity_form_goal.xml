@@ -79,4 +79,13 @@
         android:text="Salvar Meta"
         android:textColor="@color/black" />
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Excluir"
+
+        android:textColor="@color/black" />
+
 </LinearLayout>

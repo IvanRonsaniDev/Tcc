@@ -2,15 +2,23 @@ package com.example.tcc
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.lifecycle.viewModelScope
 import com.example.tcc.core.base.BaseActivity
 import com.example.tcc.core.extensions.showPopupMenu
+import com.example.tcc.core.extensions.showToast
 import com.example.tcc.data.AppSingleton
 import com.example.tcc.data.db.AppDataBase
 import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
 import com.example.tcc.data.db.entities.DisciplineEntity
+import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.databinding.ActivityAddActivityBinding
+import com.example.tcc.databinding.ActivityFormGoalBinding
+import com.example.tcc.presentation.dialog.ConfirmDeleteDialogFragment
+import com.example.tcc.presentation.viewModel.ActivityViewModel
+import com.example.tcc.presentation.viewModel.GoalFormViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -22,6 +30,9 @@ import kotlinx.coroutines.withContext
 
 class AddActivityActivity : BaseActivity() {
 
+
+
+    private val viewModel: ActivityViewModel by viewModels()
     private lateinit var binding: ActivityAddActivityBinding
     private lateinit var date: Date
     private var activity: ActivityEntity? = null
@@ -53,6 +64,10 @@ class AddActivityActivity : BaseActivity() {
             classes = AppDataBase.getInstance(applicationContext).teacherDAO()
                 .getTeacherWithClasses(AppSingleton.userId).classes
         }
+
+
+
+
         CoroutineScope(Dispatchers.IO).launch {
             if (AppSingleton.isTeacher.not()) return@launch
             disciplines = AppDataBase.getInstance(applicationContext).teacherDAO()
@@ -136,6 +151,8 @@ class AddActivityActivity : BaseActivity() {
                 finish() // Fechar a atividade após adicionar
             }
         }
+        binding.btnDelete.isVisible = AppSingleton.isTeacher
+
 
         binding.etTurma.setOnClickListener {
             showPopupMenu(
@@ -163,6 +180,24 @@ class AddActivityActivity : BaseActivity() {
                 binding.etAtividadeAvaliativa.setText(it.second)
             }
         }
+
+
+
+            binding.btnDelete.setOnClickListener {
+            val dialog = ConfirmDeleteDialogFragment { isConfirmed ->
+                if (isConfirmed) {
+                    activity?.let {
+                        viewModel.deleteActivity(it)
+                        showToast("Meta excluída com sucesso!")
+                        finish()
+                    }
+                }
+            }
+            dialog.show(supportFragmentManager, "ConfirmDeleteDialog")
+        }
+
+
+
     }
 
     companion object {

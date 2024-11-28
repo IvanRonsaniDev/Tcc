@@ -78,15 +78,6 @@
         android:text="SAIR"
         android:textColor="@color/black" />
 
-    <!-- Link para mudança de curso -->
-    <TextView
-        android:id="@+id/change_course_link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Quero mudar de Curso!"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+
 
 </LinearLayout>

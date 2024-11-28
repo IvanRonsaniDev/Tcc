@@ -1,11 +1,13 @@
 package com.example.tcc.data.db.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.example.tcc.data.db.entities.ActivityEntity
 import com.example.tcc.data.db.entities.ClassEntity
+import com.example.tcc.data.db.entities.GoalEntity
 import java.util.Date
 
 @Dao
@@ -34,5 +36,8 @@ interface ActivityDAO {
 
     @Query("SELECT * FROM activity_table WHERE disciplineId = :disciplineId AND date = :date")
     suspend fun getActivitiesByDisciplineIdAndDate(disciplineId: Long, date: Date): List<ActivityEntity>
+
+    @Delete
+    suspend fun delete(activityEntity: ActivityEntity)
 
 }

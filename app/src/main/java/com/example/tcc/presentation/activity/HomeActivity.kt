@@ -1,13 +1,19 @@
 package com.example.tcc.presentation.activity
 
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.tcc.AddActivityActivity
 import com.example.tcc.core.base.BaseActivity
+import com.example.tcc.data.db.entities.ActivityEntity
+import com.example.tcc.data.db.entities.GoalEntity
 import com.example.tcc.databinding.ActivityHomeBinding
 
 
 class HomeActivity : BaseActivity() {
+    val activity = AddActivityActivity
+
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -17,7 +23,16 @@ class HomeActivity : BaseActivity() {
 
         setContentView(binding.root)
         initNavigation()
+
+
+
+
+
     }
+
+
+
+
 
     private fun initNavigation() {
         val navHostFragment =

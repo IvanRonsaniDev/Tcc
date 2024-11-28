@@ -106,7 +106,15 @@
             android:layout_marginEnd="20dp"
             android:text="Adicionar"
             android:textColor="@android:color/black" />
-        =
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Excluir"
+            android:textColor="@color/black" />
+
     </LinearLayout>
 
 </ScrollView>
